@@ -1,0 +1,14 @@
+$boldpath = 'stylus/fonts/GT Cinetype Bold/GT-Cinetype-Bold'
+$regularpath = 'stylus/fonts/GT Cinetype Regular/GT-Cinetype-Regular'
+
+@font-face 
+    font-family 'GT Cinetype Bold'
+    src url($boldpath + '.eot?#iefix') format('embedded-opentype'), 
+        url($boldpath + '.woff') format('woff'), 
+        url($boldpath + '.ttf')  format('truetype')
+@font-face
+    font-family 'GT Cinetype Regular'
+    src url($regularpath + '.eot?#iefix') format('embedded-opentype'), 
+        url($regularpath + '.woff') format('woff'),
+        url($regularpath + '.ttf')  format('truetype'),
+        url($regularpath + '.svg#GTCinetypeRegular') format('svg')

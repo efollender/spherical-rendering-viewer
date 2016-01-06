@@ -27,7 +27,7 @@ three.js r65 or higher
 // the semi-colon before the function invocation is a safety
 // net against concatenated scripts and/or other plugins
 // that are not closed properly.
-;(function ( $, THREE, Detector, window, document, undefined ) {
+(function ( $, THREE, Detector, window, document, undefined ) {
 
     // undefined is used here as the undefined global
     // variable in ECMAScript 3 and is mutable (i.e. it can
@@ -100,15 +100,14 @@ three.js r65 or higher
             this._fov = this.options.fov;
 
             // save our original height and width for returning from fullscreen
-            this._originalWidth = $(this.element).find('canvas').width();
-            this._originalHeight = $(this.element).find('canvas').height();
+            this._originalWidth = $(this.element).width();
+            this._originalHeight = $(this.element).height();
 
             // add a class to our element so it inherits the appropriate styles
             $(this.element).addClass('Valiant360_default');
-
             this.createMediaPlayer();
             this.createControls();
-
+            // this.addListeners();
         },
 
         generateUUID: function(){
@@ -119,6 +118,20 @@ three.js r65 or higher
                 return (c==='x' ? r : (r&0x7|0x8)).toString(16);
             });
             return uuid;
+        },
+        addListeners: function() {
+            var self = this;
+            var menuItems = document.getElementsByClassName('video-item');
+            [].slice.call(menuItems).forEach(function(video) {
+                video.addEventListener('click', function(e){
+                    e.preventDefault();
+                    var source = e.target.getAttribute('data-video-src');
+                    console.log(e.target, source);
+                    // $('.valiantPhoto').attr('data-video-src', source);
+                    // $('.valiantPhoto').Valiant360();
+                    self.loadVideo(source).bind(self);
+                });
+            });
         },
 
         createMediaPlayer: function() {

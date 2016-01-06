@@ -1,0 +1,72 @@
+@import 'nib'
+@import './fonts/index';
+
+body
+	font-family 'GT Cinetype Bold', sans-serif
+	margin 0
+	padding 0
+	font-size 14px
+	@media screen and (max-width: 1400px)
+		font-size 12px
+	@media screen and (max-width: 1600px)
+		font-size 14px
+	@media screen and (min-width: 1600px)
+		font-size 16px
+a
+	text-decoration none
+h1
+	font-size 5em
+.flex-wrapper
+	display flex
+	width 100%
+	min-width 100vw
+	min-height 100vh
+.logo-wrapper
+	background url('../assets/bdf/1x1.png')
+	padding 2rem
+	text-align center
+	img
+		max-width 80px
+		display inline-block
+.navigation-wrapper
+	flex 1
+	background #eee
+	ul
+		padding 2rem
+		list-style-type none
+		margin 0
+		li
+			font-family 'GT Cinetype Regular', sans-serif
+			font-size 1.5em
+			padding-bottom 1rem
+			cursor pointer
+			transition color .2s ease-in-out
+			&:hover
+				color #555
+.main-content
+	flex 8
+	padding 2em
+	.title-wrapper
+		margin-bottom -8em
+		z-index 2
+		position relative
+		padding-left 5em
+		display inline-block
+		h1
+			margin-top 0
+.video-wrapper
+	width 100%
+	padding-top 56.25%
+	position relative
+	.valiantPhoto
+		position absolute
+		top 0
+		left 0
+		right 0
+		bottom 0
+	.controls
+		width 100%
+		text-align center
+		a
+			color #333
+			padding 1em

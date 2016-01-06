@@ -34,6 +34,15 @@ module.exports = function(grunt) {
         ]
       }
     },
+    connect: {
+      server: {
+        options: {
+          port: 9001,
+          base: 'www-root',
+          keepalive: true
+        }
+      }
+    },
     bump: {
       options: {
         commit: false,
@@ -112,6 +121,10 @@ module.exports = function(grunt) {
       dev_js: {
         files: ['src/valiant.jquery.js', 'src/valiantRefactor.js'],
         tasks: ['jshint:lib', 'concat']
+      },
+      connect: {
+        files: 'build/demo.html',
+        tasks: ['connect']
       }
     },
     // gzip assets 1-to-1 for production
@@ -160,6 +173,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-requirejs');
   grunt.loadNpmTasks('grunt-rsync');
   grunt.loadNpmTasks('grunt-bump');
